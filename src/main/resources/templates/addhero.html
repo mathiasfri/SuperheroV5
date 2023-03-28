@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+</head>
+<body style="margin-left: 40%">
+<h1>Create your own Superhero</h1>
+<form action="#" th:action="@{/superhero/create}" th:object="${superhero}" method="post">
+    <label>Hero Name: </label>
+    <input type="text" th:field="*{heroName}" placeholder="Hero name" class="form-label"><br>
+
+    <label>Real Name</label>
+    <input type="text" th:field="*{realName}" placeholder="Real name" class="form-label"><br>
+
+    <label>Creation Year</label>
+    <input type="number" th:field="*{creationYear}" class="form-label"><br>
+
+    <label>City</label>
+    <select th:field="*{city}">
+        <option th:each="c: ${cities}" th:value="${c}" th:text="${c}"></option>
+    </select><br>
+
+    <label>Superpowers</label>
+    <input type="checkbox" th:field="*{powers}" th:each="s : ${superpowerList}" th:value="${s}" th:text="${s}"/>
+    <br>
+
+<a th:href="@{/superhero/}">Back</a>
+    <input type="submit" value="Save" class="btn btn-dark" style="margin-top: 20px; margin-left: 100px">
+</form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Superpowers</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<table class="table table-dark table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Powers</th>
+    </tr>
+    </thead>
+
+    <tbody>
+        <tr th:each="Superpower: ${superpowers}">
+            <td th:text="${Superpower.powers}"/>
+        </tr>
+    </tbody>
+</table>
+<a th:href="@{/superhero/}">
+    <button type="button" style="margin-left: 50%" class="btn-info">Go back</button>
+</a>
+</body>
+</html>

@@ -6,13 +6,21 @@ public class Superhero {
     private String realName;
 
     private int creationYear;
+    private String powers;
+    private String city;
 
-    public Superhero(int superheroID, String heroName, String realName, int creationYear)
+    public Superhero(int superheroID, String heroName, String realName, int creationYear, String powers, String city)
     {
         this.superheroID = superheroID;
         this.heroName = heroName;
         this.realName = realName;
         this.creationYear = creationYear;
+        this.powers = powers;
+        this.city = city;
+    }
+
+    public Superhero(){
+
     }
 
     public String getHeroName(){
@@ -45,6 +53,22 @@ public class Superhero {
 
     public void setCreationYear(int creationYear) {
         this.creationYear = creationYear;
+    }
+
+    public String getPowers() {
+        return powers;
+    }
+
+    public void setPowers(String powers) {
+        this.powers = powers;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     @Override
