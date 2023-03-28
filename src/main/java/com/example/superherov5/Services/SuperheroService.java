@@ -34,4 +34,8 @@ public class SuperheroService {
     public void addSuperhero(SuperheroDTO superheroDTO){
         superheroRepository.addSuperhero(superheroDTO);
     }
+
+    public void removeSuperhero(int superheroID){
+        superheroRepository.removeSuperhero(superheroID);
+    }
 }

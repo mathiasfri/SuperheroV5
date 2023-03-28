@@ -154,4 +154,22 @@ public class SuperheroRepository {
             throw new RuntimeException(e);
         }
     }
+
+    public void removeSuperhero(int superheroID){
+        try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/main_schema", "root", "1234")) {
+            String SQL5 = "DELETE FROM superheroes WHERE superheroID = ?;";
+            PreparedStatement pstm = con.prepareStatement(SQL5);
+            pstm.setInt(1, superheroID);
+            pstm.executeUpdate();
+
+
+            String SQL6 = "DELETE FROM superhero_superpower WHERE superheroID = ?;";
+            PreparedStatement pstm2 = con.prepareStatement(SQL6);
+            pstm2.setInt(1, superheroID);
+            pstm2.executeUpdate();
+        }
+        catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
 }

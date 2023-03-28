@@ -58,4 +58,11 @@ public class SuperheroController {
 
         return "redirect:/superhero/";
     }
+
+    @GetMapping("/remove/{superheroID}")
+    public String removeSuperhero(@PathVariable int superheroID){
+        superheroService.removeSuperhero(superheroID);
+
+        return "redirect:/superhero/";
+    }
 }

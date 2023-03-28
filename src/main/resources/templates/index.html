@@ -27,6 +27,11 @@
                     <button type="button" class="btn-light">Powers</button>
                 </a>
             </td>
+            <td>
+                <a th:href="@{'/superhero/remove/' + ${Superhero.superheroID}}">
+                    <button type="button" class="alert-dark" style="color: red">Delete</button>
+                </a>
+            </td>
         </tr>
     </tbody>
 </table>
