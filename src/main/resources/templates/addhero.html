@@ -3,30 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <title>Create</title>
+<style type="text/css">
+    label{
+        display: inline-block;
+        width: 50%;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    input[type="text"], input[type="number"]{
+        width: 100%;
+        height: 25px;
+        margin-bottom: 10px;
+    }
+
+    select{
+        width: 100px;
+        height: 30px;
+        margin-bottom: 10px;
+    }
+
+    input[type="checkbox"]{
+        height: 30px;
+        width: 30px;
+        display: inline-block;
+        font-size: 100%;
+        margin-right: 3px;
+        margin-left: 40px;
+    }
+</style>
 </head>
-<body style="margin-left: 40%">
+
 <h1>Create your own Superhero</h1>
+
+<body style="max-width: 750px; margin: auto">
 <form action="#" th:action="@{/superhero/create}" th:object="${superhero}" method="post">
-    <label>Hero Name: </label>
-    <input type="text" th:field="*{heroName}" placeholder="Hero name" class="form-label"><br>
+    <label for="heroName">Hero Name</label>
+    <input type="text" id="heroName" th:field="*{heroName}" placeholder="Hero name" class="form-label"><br>
 
-    <label>Real Name</label>
-    <input type="text" th:field="*{realName}" placeholder="Real name" class="form-label"><br>
+    <label for="realName">Real Name</label>
+    <input type="text" id="realName" th:field="*{realName}" placeholder="Real name" class="form-label"><br>
 
-    <label>Creation Year</label>
-    <input type="number" th:field="*{creationYear}" class="form-label"><br>
+    <label for="creationYear">Creation Year</label>
+    <input type="number" id="creationYear" th:field="*{creationYear}" placeholder="Enter year" class="form-label"><br>
 
-    <label>City</label>
-    <select th:field="*{city}">
+    <label for="city">City</label>
+    <br>
+    <select id="city" th:field="*{city}">
         <option th:each="c: ${cities}" th:value="${c}" th:text="${c}"></option>
     </select><br>
 
-    <label>Superpowers</label>
-    <input type="checkbox" th:field="*{powers}" th:each="s : ${superpowerList}" th:value="${s}" th:text="${s}"/>
+    <label for="powers">Superpowers</label>
+    <br>
+    <input type="checkbox" id="powers" th:field="*{powers}" th:each="s : ${superpowerList}" th:value="${s}" th:text="${s}"/>
     <br>
 
-<a th:href="@{/superhero/}">Back</a>
-    <input type="submit" value="Save" class="btn btn-dark" style="margin-top: 20px; margin-left: 100px">
+    <input type="submit" value="Save" class="btn btn-dark" style="margin-top: 20px; height: 40px; font-size: 30px;
+    margin-bottom:100px; max-width: 100%; display: block">
+
+    <a th:href="@{/superhero/}" style="font-size: 20px; margin-top: 100px">Go Back</a>
 </form>
 </body>
 </html>
